@@ -36,6 +36,18 @@ jokes = [
     punchLine: "It was a shih tzu."
   }
 ];
+app.get("/jokes", function(req, res) {
+  // console.log('server call works');
+  res.send(jokes);
+  // console.log(jokes);
+});
+app.post("/addjokes", function(req, res) {
+  var newJoke = req.body;
+  // console.log(newJoke);
+  jokes.push(newJoke);
+  console.log(jokes);
+  res.sendStatus(200);
+});
 
 // server back static files
 app.get("/*", function(req, res) {
